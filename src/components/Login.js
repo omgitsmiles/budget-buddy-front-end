@@ -33,7 +33,7 @@ export default function Login({handleChange, userForm, setIsLogin, setUser}) {
             if (res.ok){
                 res.json().then(user => {
                     setUser(user)
-                    const token = user.token
+                    const token = res.headers.get('set-cookie').split(';')[0].split('=')[1]
                     localStorage.setItem("token", token)
                     console.log(token, res)
                 })
