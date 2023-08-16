@@ -42,7 +42,7 @@ export default function Home({ setUser, user }) {
 
     function handleCreateBudget(e){
       e.preventDefault()
-      fetch('/budgets', {
+      fetch('https://budget-buddy-back-end.onrender.com/budgets', {
         method: "POST",
         headers: {"Content-Type": 'application/json'},
         body: JSON.stringify({ title: input })
@@ -67,7 +67,7 @@ export default function Home({ setUser, user }) {
     }
 
     function handleDeleteBudget(budgetId){
-      fetch(`/budgets/${budgetId}`, {
+      fetch(`https://budget-buddy-back-end.onrender.com/budgets/${budgetId}`, {
         method: "DELETE"
       })
       .then(() => {

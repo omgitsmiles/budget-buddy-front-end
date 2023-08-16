@@ -53,7 +53,7 @@ export default function BudgetChart({ setUser, user, budget, categories, progres
       }
 
     function handleDeleteBudget(){
-        fetch(`/budgets/${budget.id}`, {
+        fetch(`https://budget-buddy-back-end.onrender.com/budgets/${budget.id}`, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })

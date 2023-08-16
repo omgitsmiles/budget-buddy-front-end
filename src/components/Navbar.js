@@ -46,7 +46,7 @@ export default function Nav({ user, setUser }) {
 
   function handleLogout(e){
     e.preventDefault()
-    fetch('logout',{
+    fetch('https://budget-buddy-back-end.onrender.com/logout',{
         method: "DELETE"
     }).then(() =>setUser(null))
     navigate('/')

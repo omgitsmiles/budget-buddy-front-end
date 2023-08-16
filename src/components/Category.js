@@ -44,7 +44,7 @@ const Category = ({  user, setUser }) => {
     }
 
     function handleDeleteCategoryCard(deletedCategory){
-      fetch(`/categories/${deletedCategory.id}`, {
+      fetch(`https://budget-buddy-back-end.onrender.com/categories/${deletedCategory.id}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" }
       })
@@ -76,7 +76,7 @@ const Category = ({  user, setUser }) => {
 
     function postExpense(e){
        e.preventDefault()
-       fetch('/expenses', {
+       fetch('https://budget-buddy-back-end.onrender.com/expenses', {
           method: "POST",
           headers: {"Content-Type": 'application/json'},
           body: JSON.stringify(expenseForm)
@@ -112,7 +112,7 @@ const Category = ({  user, setUser }) => {
       }
 
       function patchCategory(patchedCategory){
-        fetch(`/categories/${id}`, {
+        fetch(`https://budget-buddy-back-end.onrender.com/categories/${id}`, {
           method: "PATCH",
           headers: {"Content-Type": 'application/json'},
           body: JSON.stringify(patchedCategory)
@@ -143,7 +143,7 @@ const Category = ({  user, setUser }) => {
       }
 
     useEffect(() => { 
-        fetch(`/categories/${id}`)
+        fetch(`https://budget-buddy-back-end.onrender.com/categories/${id}`)
         .then(res => res.json())
         .then(category => {
             setCategory(category)

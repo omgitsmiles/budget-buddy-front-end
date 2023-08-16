@@ -14,7 +14,7 @@ function AnimatedRoutes() {
 useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch("/check_session");
+        const response = await fetch("https://budget-buddy-back-end.onrender.com/check_session");
         if (response.ok) {
           const userData = await response.json();
           setUser(userData);
