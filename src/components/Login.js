@@ -31,7 +31,12 @@ export default function Login({handleChange, userForm, setIsLogin, setUser}) {
         })
         .then(res => {
             if (res.ok){
-                res.json().then(setUser)
+                res.json().then(user => {
+                    setUser(user)
+                    const token = user.token
+                    localStorage.setItem("token", token)
+                    console.log(token)
+                })
                 return navigate("/home")
             } else {
               res.json().then(e =>
