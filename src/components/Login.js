@@ -35,7 +35,7 @@ export default function Login({handleChange, userForm, setIsLogin, setUser}) {
                     setUser(user)
                     const token = user.token
                     localStorage.setItem("token", token)
-                    console.log(token)
+                    console.log(token, res)
                 })
                 return navigate("/home")
             } else {
