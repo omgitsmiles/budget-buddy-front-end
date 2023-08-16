@@ -38,7 +38,7 @@ useEffect(() => {
             <Route exact path='/budgets/:id' element={<Budget  setUser={setUser} user={user}/>}/>
             <Route exact path='/categories/:id' element={<Category  setUser={setUser} user={user}/>}/>
             <Route exact path='/user/profile' element={<UserProfile setUser={setUser} user={user}/>}/>
-            <Rooute path='*' element={<NotFound />}/>
+            <Route path='*' element={<NotFound />}/>
         </Routes>
     </AnimatePresence>
   )
