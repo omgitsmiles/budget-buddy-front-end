@@ -40,6 +40,8 @@ export default function Home({ setUser, user }) {
       navigate(`/budgets/${budId}`)
     }
 
+    console.log(user)
+
     function handleCreateBudget(e){
       e.preventDefault()
       fetch('https://budget-buddy-back-end.onrender.com/budgets', {
