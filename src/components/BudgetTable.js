@@ -107,7 +107,7 @@ export default function BudgetTable({ fromBudget, transactions, handleDeleteExpe
           </Thead>
           <Tbody>
               {sortedTransactions?.map(transaction => { return (
-              <Tr key={transaction.title}>
+              <Tr key={transaction?.title}>
               <Td>{transaction?.title}</Td>
               <Td>{transaction?.created_at?.slice(0, 16)}</Td>
               <Td color={transaction?.category_id ? "red.600" : "green.700"}>{transaction?.amount}</Td>
