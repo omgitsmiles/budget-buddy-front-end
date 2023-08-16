@@ -27,6 +27,7 @@ import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import Lottie from 'lottie-react'
 import budgetLoading from '../lottie/BudgetAnimation.json'
+import NotFound from './NotFound'
 
 export default function Home({ setUser, user }) {
     const [open, setOpen] = useState(false)
@@ -87,23 +88,7 @@ export default function Home({ setUser, user }) {
 
     if (!user) return (
       <>
-         <Heading
-        as={motion.h1}
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -100 }}
-        fontWeight={600}
-        fontSize={{ base: '3xl', sm: '4xl', md: '5xl', lg: '6xl' }}
-        mb={'25'}
-        lineHeight={'110%'}>
-        <Text as={'span'} 
-            bgGradient="linear(to-r, green.400,green.700)"
-            bgClip="text"
-            >
-            404 Budget Not Found
-        </Text>
-      </Heading>
-    <Lottie loop={true} animationData={budgetLoading} />
+       <NotFound />
       </>
     )
 

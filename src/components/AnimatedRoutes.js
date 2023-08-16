@@ -5,6 +5,7 @@ import Home from './Home'
 import Budget from './Budget'
 import UserProfile from './UserProfile'
 import Category from './Category'
+import NotFound from './NotFound'
 import { AnimatePresence } from 'framer-motion'
 
 function AnimatedRoutes() {
@@ -37,6 +38,7 @@ useEffect(() => {
             <Route exact path='/budgets/:id' element={<Budget  setUser={setUser} user={user}/>}/>
             <Route exact path='/categories/:id' element={<Category  setUser={setUser} user={user}/>}/>
             <Route exact path='/user/profile' element={<UserProfile setUser={setUser} user={user}/>}/>
+            <Rooute path='*' element={<NotFound />}/>
         </Routes>
     </AnimatePresence>
   )

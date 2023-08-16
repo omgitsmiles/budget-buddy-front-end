@@ -312,7 +312,6 @@ const Budget = ({ setUser, user }) => {
         </>
       )
     }
-    // console.log(expenseForm)
 
   return (
     <>

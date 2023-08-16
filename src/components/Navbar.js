@@ -20,35 +20,19 @@ import { useNavigate } from 'react-router-dom'
 import { FcMoneyTransfer } from 'react-icons/fc'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 
-const NavLink = (props) => {
-  const { children } = props
-
-  return (
-    <Box
-      as="a"
-      px={2}
-      py={1}
-      rounded={'md'}
-      _hover={{
-        textDecoration: 'none',
-        bg: useColorModeValue('gray.200', 'gray.700'),
-      }}
-      href={'#'}>
-      {children}
-    </Box>
-  )
-}
 
 export default function Nav({ user, setUser }) {
   const { colorMode, toggleColorMode } = useColorMode()
-  const { isOpen, onOpen, onClose } = useDisclosure()
   const navigate = useNavigate()
 
   function handleLogout(e){
     e.preventDefault()
     fetch('https://budget-buddy-back-end.onrender.com/logout',{
         method: "DELETE"
-    }).then(() =>setUser(null))
+    }).then(() => {
+      setUser(null)
+      localStorage.removeItem('token')
+    })
     navigate('/')
   }
 
