@@ -27,13 +27,14 @@ export default function Login({handleChange, userForm, setIsLogin, setUser}) {
         fetch(`https://budget-buddy-back-end.onrender.com/login`, {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(userForm)
+            body: JSON.stringify(userForm),
+            credentials: 'include'
         })
         .then(res => {
             if (res.ok){
               return res.json().then(user => {
                 setUser(user);
-                const token = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
+                const token = user.token;
                 localStorage.setItem("token", token);
                 console.log(token, res);
                 navigate("/home");
