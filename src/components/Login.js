@@ -33,7 +33,7 @@ export default function Login({handleChange, userForm, setIsLogin, setUser}) {
             if (res.ok){
               return res.json().then(user => {
                 setUser(user);
-                const token = user.token;
+                const token = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
                 localStorage.setItem("token", token);
                 console.log(token, res);
                 navigate("/home");
