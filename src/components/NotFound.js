@@ -1,6 +1,8 @@
 import React from 'react'
 import Lottie from 'lottie-react'
 import budgetLoading from '../lottie/BudgetAnimation.json'
+import { Heading, Text } from '@chakra-ui/react'
+import { motion } from 'framer-motion'
 
 const NotFound = () => {
   return (
