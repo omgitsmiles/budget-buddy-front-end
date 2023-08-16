@@ -40,7 +40,7 @@ const CategoryCard = ({ category, fromBudget, categories, setCategories, handleD
     let totalSpent = 0
     if(category){
         //adds amount of each expense to total spent accumulator
-        category.expenses.forEach((expense) => totalSpent += expense.amount) //adds amount of each expense to total spent acculumater
+        category?.expenses?.forEach((expense) => totalSpent += expense.amount) //adds amount of each expense to total spent acculumater
     }
 
     function categoryLink(catId){
