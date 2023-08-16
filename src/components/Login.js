@@ -31,13 +31,13 @@ export default function Login({handleChange, userForm, setIsLogin, setUser}) {
         })
         .then(res => {
             if (res.ok){
-                res.json().then(user => {
-                    setUser(user)
-                    const token = res.headers.get('set-cookie').split(';')[0].split('=')[1]
-                    localStorage.setItem("token", token)
-                    console.log(token, res)
-                })
-                return navigate("/home")
+              return res.json().then(user => {
+                setUser(user);
+                const token = user.token;
+                localStorage.setItem("token", token);
+                console.log(token, res);
+                navigate("/home");
+              })
             } else {
               res.json().then(e =>
               toast({
@@ -48,6 +48,9 @@ export default function Login({handleChange, userForm, setIsLogin, setUser}) {
               })
               )
             }
+        })
+        .catch(error => {
+          console.error("Login error:", error)
         })
     }
 
